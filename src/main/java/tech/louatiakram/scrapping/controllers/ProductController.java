@@ -1,9 +1,9 @@
 package tech.louatiakram.scrapping.controllers;
 
-import tech.louatiakram.scrapping.entities.Product;
-import tech.louatiakram.scrapping.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tech.louatiakram.scrapping.entities.Product;
+import tech.louatiakram.scrapping.services.ProductService;
 
 import java.util.List;
 

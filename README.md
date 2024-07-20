@@ -21,8 +21,9 @@ Scrapping is a Spring Boot project designed to scrape product data from Tunisian
     ```bash
    git clone https://github.com/louatiakram/Scrapping.git
    cd Scrapping
-2. **Create a MySQL database named scrapping and update the src/main/resources/application.properties file with your database credentials.**
+2. **Create a MySQL database named scrapping and update the src/main/resources/application.properties file with your
+   database credentials.**
     ```bash
     spring.datasource.url=jdbc:mysql://localhost:3306/scrapping
-   
+
 3. 

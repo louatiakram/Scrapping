@@ -1,13 +1,13 @@
 package tech.louatiakram.scrapping;
 
-import tech.louatiakram.scrapping.entities.Product;
-import tech.louatiakram.scrapping.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
+import tech.louatiakram.scrapping.entities.Product;
+import tech.louatiakram.scrapping.repository.ProductRepository;
 import tech.louatiakram.scrapping.services.ProductService;
 
 import java.util.Arrays;

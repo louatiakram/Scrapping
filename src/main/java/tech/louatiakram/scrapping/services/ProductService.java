@@ -1,9 +1,9 @@
 package tech.louatiakram.scrapping.services;
 
-import tech.louatiakram.scrapping.entities.Product;
-import tech.louatiakram.scrapping.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tech.louatiakram.scrapping.entities.Product;
+import tech.louatiakram.scrapping.repository.ProductRepository;
 
 import java.util.List;
 
