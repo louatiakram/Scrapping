@@ -8,16 +8,17 @@ import java.io.IOException;
 public class Tunisianet {
     public static void main(String[] args) {
         String baseUrl = "https://www.tunisianet.com.tn/681-pc-portable-gamer";
+        int i=0;
         try {
             String url = baseUrl;
             while (url != null) {
                 Document doc = Jsoup.connect(url).get();
                 Elements books = doc.select(".item-product");
-
+                
                 for (Element book : books) {
                     Element titleElement = book.select("h2 > a").first();
                     String title = titleElement.text();
-
+                    i++;
                     Elements priceElements = book.select(".price");
                     if (!priceElements.isEmpty()) {
                         String price = priceElements.first().text();
@@ -26,7 +27,7 @@ public class Tunisianet {
                         cleanedPrice = cleanedPrice.replaceAll("(\\.)(?=.*\\.)", ""); // Remove all dots except the last one
 
                         try {
-                            if (Double.parseDouble(cleanedPrice) >= 11000) {
+                            if (Double.parseDouble(cleanedPrice) >= 0) {
                                 // Split title into components
                                 String[] components = title.split(" / ");
                                 String name = "";
@@ -54,7 +55,7 @@ public class Tunisianet {
                                 if (components.length >= 6) {
                                     color = components[5];
                                 }
-
+                                System.out.println("id: " + i);
                                 System.out.println("Name: " + name);
                                 System.out.println("Processor: " + processor);
                                 System.out.println("GPU: " + gpu);

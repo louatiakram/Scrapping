@@ -42,7 +42,7 @@ public class TunisianetScraper implements CommandLineRunner {
                         cleanedPrice = cleanedPrice.replaceAll("(\\.)(?=.*\\.)", ""); // Remove all dots except the last one
 
                         try {
-                            if (Double.parseDouble(cleanedPrice) >= 11259) {
+                            if (Double.parseDouble(cleanedPrice) >= 0) {
                                 String[] components = title.split(" / ");
                                 String name = "";
                                 String processor = "";
