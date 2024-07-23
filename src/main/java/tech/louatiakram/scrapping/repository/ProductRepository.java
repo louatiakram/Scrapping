@@ -1,13 +1,10 @@
 package tech.louatiakram.scrapping.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import tech.louatiakram.scrapping.entities.Product;
 
-@Repository
+import java.util.List;
+
 public interface ProductRepository extends JpaRepository<Product, Long> {
-
-    Product findByName(String name);
-
-    Product findByNameAndPrice(String name, double price);
+    List<Product> findByNameAndPrice(String name, Double price);
 }
