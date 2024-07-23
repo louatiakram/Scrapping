@@ -8,4 +8,6 @@ import tech.louatiakram.scrapping.entities.Product;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Product findByName(String name);
+
+    Product findByNameAndPrice(String name, double price);
 }

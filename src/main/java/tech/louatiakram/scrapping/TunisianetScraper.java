@@ -58,19 +58,20 @@ public class TunisianetScraper implements CommandLineRunner {
                                 if (components.length >= 5) storage = components[4];
                                 if (components.length >= 6) color = components[5];
 
-                                // Check if the product already exists
-                                Product existingProduct = productService.getProductByName(name);
+                                // Check if the product with the same name and price already exists
+                                Product existingProduct = productService.getProductByNameAndPrice(name, Double.parseDouble(cleanedPrice));
                                 if (existingProduct != null) {
                                     // Update the existing product
+                                    System.out.println("Updating product: " + existingProduct.getName());
                                     existingProduct.setProcessor(processor);
                                     existingProduct.setGpu(gpu);
                                     existingProduct.setRam(ram);
                                     existingProduct.setStorage(storage);
                                     existingProduct.setColor(color);
-                                    existingProduct.setPrice(Double.parseDouble(cleanedPrice));
                                     productService.saveProduct(existingProduct);
                                 } else {
                                     // Create a new product
+                                    System.out.println("Saving new product: " + name + " with price: " + cleanedPrice);
                                     Product product = new Product();
                                     product.setName(name);
                                     product.setProcessor(processor);
@@ -82,8 +83,8 @@ public class TunisianetScraper implements CommandLineRunner {
                                     productService.saveProduct(product);
                                 }
                             }
-                        } catch (NumberFormatException e) {
-                            System.err.println("Error parsing price: " + price + " - " + e.getMessage());
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -101,10 +102,6 @@ public class TunisianetScraper implements CommandLineRunner {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } /*finally {
-            // Stop the application context
-            appContext.close();
-            System.exit(0);
-        }*/
+        }
     }
 }

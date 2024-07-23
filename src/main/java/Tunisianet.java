@@ -65,8 +65,8 @@ public class Tunisianet {
                                 System.out.println("Price: " + price);
                                 System.out.println("----------------------------------");
                             }
-                        } catch (NumberFormatException e) {
-                            System.err.println("Error parsing price: " + price + " - " + e.getMessage());
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 }

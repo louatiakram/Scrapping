@@ -28,4 +28,9 @@ public class ProductService {
     public Product getProductByName(String name) {
         return productRepository.findByName(name);
     }
+
+    public Product getProductByNameAndPrice(String name, double price) {
+        return productRepository.findByNameAndPrice(name, price);
+    }
+
 }
