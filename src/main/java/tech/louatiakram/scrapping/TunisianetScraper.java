@@ -12,6 +12,9 @@ import tech.louatiakram.scrapping.entities.Product;
 import tech.louatiakram.scrapping.services.ProductService;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 @Component
 public class TunisianetScraper implements CommandLineRunner {
@@ -31,10 +34,15 @@ public class TunisianetScraper implements CommandLineRunner {
                 Document doc = Jsoup.connect(url).get();
                 Elements productLinks = doc.select("h2.product-title > a");
 
-                for (Element linkElement : productLinks) {
-                    String productDetailUrl = linkElement.attr("href");
-                    extractProductDetails(productDetailUrl);
-                }
+                List<CompletableFuture<Void>> futures = productLinks.stream()
+                        .map(linkElement -> {
+                            String productDetailUrl = linkElement.attr("href");
+                            return CompletableFuture.runAsync(() -> extractProductDetails(productDetailUrl));
+                        })
+                        .collect(Collectors.toList());
+
+                // Wait for all futures to complete
+                CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
 
                 // Find the link to the next page
                 Element nextPageElement = doc.select(".next").first();
