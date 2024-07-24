@@ -1,12 +1,12 @@
 # Scrapping
 
-Scrapping is a Spring Boot project designed to scrape product data from Tunisian stores like Tunisianet.
+Scrapping is a Spring Boot project designed to scrape computer data from Tunisian stores like Tunisianet.
 
 ## Features
 
-- Scrapes product information from Mytek and Tunisianet websites.
+- Scrapes computer information from Mytek and Tunisianet websites.
 - Stores scraped data in a PostgreSQL database.
-- Provides an API to retrieve the scraped product data (Test with Postman).
+- Provides an API to retrieve the scraped computer data (Test with Postman).
 
 ## Prerequisites
 

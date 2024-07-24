@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "products")
-public class Product {
+public class Computer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +33,9 @@ public class Product {
     private String color;
     private Double price;
 
-    public Product(Long id, String name, String processor, String processorRef, String memory, String hardDrive,
-                   String gpu, String gpuRef, String screenSize, String screenType, String touchScreen, String network,
-                   String camera, String warranty, String refreshRate, String color, Double price) {
+    public Computer(Long id, String name, String processor, String processorRef, String memory, String hardDrive,
+                    String gpu, String gpuRef, String screenSize, String screenType, String touchScreen, String network,
+                    String camera, String warranty, String refreshRate, String color, Double price) {
         this.id = id;
         this.name = name;
         this.processor = processor;

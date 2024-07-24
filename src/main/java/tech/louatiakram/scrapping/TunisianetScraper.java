@@ -9,8 +9,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
-import tech.louatiakram.scrapping.entities.Product;
-import tech.louatiakram.scrapping.services.ProductService;
+import tech.louatiakram.scrapping.entities.Computer;
+import tech.louatiakram.scrapping.services.ComputerService;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class TunisianetScraper implements ApplicationRunner {
 
     @Autowired
-    private ProductService productService;
+    private ComputerService computerService;
 
     @Autowired
     private ConfigurableApplicationContext appContext;
@@ -150,10 +150,10 @@ public class TunisianetScraper implements ApplicationRunner {
             }
 
             if (name != null && price != null && price > 0) {
-                Product product = new Product(null, name, processor, processorRef, memory, hardDrive, gpu, gpuRef,
+                Computer computer = new Computer(null, name, processor, processorRef, memory, hardDrive, gpu, gpuRef,
                         screenSize, screenType, touchScreen, network, camera, warranty, refreshRate, color, price);
-                productService.saveProduct(product);
-                System.out.println("Saving or updating product: " + name + " with price: " + price);
+                computerService.saveProduct(computer);
+                System.out.println("Saving or updating computer: " + name + " with price: " + price);
             } else {
                 System.err.println("Skipping product due to null name, price, or price <= 0");
             }
